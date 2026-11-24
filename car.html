@@ -1,0 +1,1475 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Solar Smart EV Charging Station</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- QR Scanner Library -->
+    <script
+        src="https://unpkg.com/html5-qrcode"
+        type="text/javascript">
+    </script>
+</head>
+
+<body>
+
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
+
+<header class="navbar">
+
+    <div class="logo">
+
+        <div class="logo-icon">☀</div>
+
+        <div>
+            <h2>Solar<span>EV</span></h2>
+            <p>Smart Charging Station</p>
+        </div>
+
+    </div>
+
+
+    <nav>
+
+        <a href="#dashboard">Dashboard</a>
+        <a href="#car">My Car</a>
+        <a href="#scanner">Scanner</a>
+        <a href="#map">Station Map</a>
+        <a href="#station">Slots</a>
+        <a href="#billing">Billing</a>
+
+    </nav>
+
+
+    <button
+        class="profile-btn"
+        onclick="showProfile()">
+
+        👤 Owner
+
+    </button>
+
+</header>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="hero-text">
+
+            <div class="status-badge">
+                <span></span>
+                Station Online
+            </div>
+
+
+            <h1>
+                Smart Charging.<br>
+                <span>Powered by Solar.</span>
+            </h1>
+
+
+            <p>
+                Monitor your EV battery, find available charging
+                spaces, scan station QR codes, track solar energy
+                and receive your digital charging bill.
+            </p>
+
+
+            <div class="hero-buttons">
+
+                <button
+                    class="primary-btn"
+                    onclick="scrollToSection('map')">
+
+                    Find Charging Space ⚡
+
+                </button>
+
+
+                <button
+                    class="secondary-btn"
+                    onclick="scrollToSection('car')">
+
+                    View My Car
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="hero-card">
+
+            <div class="sun">☀️</div>
+
+            <h3>Solar Energy Today</h3>
+
+            <div class="solar-value">
+                18.5 <span>kW</span>
+            </div>
+
+            <div class="progress">
+
+                <div
+                    class="progress-fill"
+                    style="width:74%">
+                </div>
+
+            </div>
+
+            <p>
+                74% of station power is currently
+                solar generated.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<main id="dashboard">
+
+
+<!-- =====================================================
+     DASHBOARD
+===================================================== -->
+
+<section class="container">
+
+    <div class="section-heading">
+
+        <div>
+
+            <p class="small-title">
+                LIVE OVERVIEW
+            </p>
+
+            <h2>
+                Station Dashboard
+            </h2>
+
+        </div>
+
+
+        <div class="live">
+
+            <span></span>
+            Live Data
+
+        </div>
+
+    </div>
+
+
+    <div class="stats-grid">
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon green">
+                🔋
+            </div>
+
+            <div>
+
+                <p>My Battery</p>
+
+                <h3 id="dashboardBattery">
+                    42%
+                </h3>
+
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon blue">
+                ⚡
+            </div>
+
+            <div>
+
+                <p>Charging Status</p>
+
+                <h3 id="chargingStatus">
+                    Not Charging
+                </h3>
+
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon yellow">
+                ☀️
+            </div>
+
+            <div>
+
+                <p>Solar Power</p>
+
+                <h3>
+                    18.5 kW
+                </h3>
+
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon purple">
+                🅿️
+            </div>
+
+            <div>
+
+                <p>Available Spaces</p>
+
+                <h3 id="availableSlots">
+                    3 / 6
+                </h3>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     CAR DETAILS
+===================================================== -->
+
+<section
+    id="car"
+    class="container section">
+
+    <div class="section-heading">
+
+        <div>
+
+            <p class="small-title">
+                YOUR VEHICLE
+            </p>
+
+            <h2>
+                Car Details
+            </h2>
+
+        </div>
+
+    </div>
+
+
+    <div class="car-layout">
+
+
+        <div class="car-card">
+
+            <div class="car-image">
+                🚙
+            </div>
+
+
+            <div class="car-info">
+
+                <div class="car-title">
+
+                    <div>
+
+                        <p>My EV</p>
+
+                        <h3>
+                            Tata Nexon EV
+                        </h3>
+
+                    </div>
+
+
+                    <span class="verified">
+                        ✓ Connected
+                    </span>
+
+                </div>
+
+
+                <div class="car-details-grid">
+
+                    <div>
+
+                        <span>
+                            Registration
+                        </span>
+
+                        <strong>
+                            MH 12 AB 1234
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Battery Capacity
+                        </span>
+
+                        <strong>
+                            40.5 kWh
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Battery Type
+                        </span>
+
+                        <strong>
+                            Lithium-ion
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Charging Type
+                        </span>
+
+                        <strong>
+                            AC Fast Charging
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- BATTERY -->
+
+        <div class="battery-card">
+
+            <div class="card-top">
+
+                <div>
+
+                    <p>
+                        Current Battery
+                    </p>
+
+                    <h3 id="batteryPercent">
+                        42%
+                    </h3>
+
+                </div>
+
+
+                <div class="battery-icon">
+                    🔋
+                </div>
+
+            </div>
+
+
+            <div class="battery-bar">
+
+                <div
+                    class="battery-level"
+                    id="batteryLevel"
+                    style="width:42%">
+                </div>
+
+            </div>
+
+
+            <div class="battery-labels">
+
+                <span>0%</span>
+                <span>100%</span>
+
+            </div>
+
+
+            <div class="charging-calculation">
+
+                <div>
+
+                    <span>
+                        Target
+                    </span>
+
+                    <strong>
+                        100%
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        Energy Required
+                    </span>
+
+                    <strong id="energyRequired">
+                        23.49 kWh
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        Estimated Time
+                    </span>
+
+                    <strong id="estimatedTime">
+                        3h 15m
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <button
+                class="primary-btn full"
+                onclick="calculateCharging()">
+
+                Calculate Charging
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     QR SCANNER
+===================================================== -->
+
+<section
+    id="scanner"
+    class="container section">
+
+    <div class="section-heading">
+
+        <div>
+
+            <p class="small-title">
+                SMART ACCESS
+            </p>
+
+            <h2>
+                Scan Charging Station QR
+            </h2>
+
+        </div>
+
+    </div>
+
+
+    <div class="scanner-card">
+
+
+        <div class="scanner-info">
+
+            <div class="scanner-icon">
+                📱
+            </div>
+
+
+            <h3>
+                Scan Station QR Code
+            </h3>
+
+
+            <p>
+                Scan the QR code displayed on a charging
+                station to identify and select its
+                charging space.
+            </p>
+
+
+            <div
+                class="scan-result"
+                id="scanResult">
+
+                <span>●</span>
+                Waiting for QR scan...
+
+            </div>
+
+
+            <button
+                class="primary-btn"
+                onclick="startScanner()">
+
+                📷 Start Scanner
+
+            </button>
+
+
+            <button
+                class="secondary-btn"
+                onclick="stopScanner()">
+
+                Stop Scanner
+
+            </button>
+
+        </div>
+
+
+        <div class="scanner-window">
+
+            <div id="qrReader"></div>
+
+
+            <div class="scanner-frame">
+
+                <div class="corner top-left"></div>
+                <div class="corner top-right"></div>
+                <div class="corner bottom-left"></div>
+                <div class="corner bottom-right"></div>
+
+                <div class="scan-line"></div>
+
+            </div>
+
+
+            <div
+                class="scanner-placeholder"
+                id="scannerPlaceholder">
+
+                📷
+
+                <p>
+                    Camera will appear here
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     STATION MAP
+===================================================== -->
+
+<section
+    id="map"
+    class="container section">
+
+
+    <div class="section-heading">
+
+        <div>
+
+            <p class="small-title">
+                LIVE STATION MAP
+            </p>
+
+            <h2>
+                Find an Empty Charging Space
+            </h2>
+
+        </div>
+
+
+        <div class="live">
+
+            <span></span>
+            Station Live
+
+        </div>
+
+    </div>
+
+
+    <div class="station-map-layout">
+
+
+        <!-- STATION LAYOUT -->
+
+        <div class="station-layout-card">
+
+            <div class="map-top">
+
+                <div>
+
+                    <h3>
+                        SolarEV Station
+                    </h3>
+
+                    <p>
+                        Choose an available charging space
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="map-status"
+                    id="mapAvailableStatus">
+
+                    🟢 3 Available
+
+                </div>
+
+            </div>
+
+
+            <div class="station-entry">
+
+                🚗 ENTRY
+
+            </div>
+
+
+            <div class="parking-area">
+
+
+                <div
+                    class="parking-slot available"
+                    id="mapSlot1"
+                    onclick="selectMapSlot(1)">
+
+                    <span class="slot-label">
+                        A1
+                    </span>
+
+                    <div class="parking-car">
+                        ⚡🚗
+                    </div>
+
+                    <strong>
+                        AVAILABLE
+                    </strong>
+
+                </div>
+
+
+                <div
+                    class="parking-slot occupied"
+                    id="mapSlot2">
+
+                    <span class="slot-label">
+                        A2
+                    </span>
+
+                    <div class="parking-car">
+                        🚙
+                    </div>
+
+                    <strong>
+                        OCCUPIED
+                    </strong>
+
+                </div>
+
+
+                <div
+                    class="parking-slot available"
+                    id="mapSlot3"
+                    onclick="selectMapSlot(3)">
+
+                    <span class="slot-label">
+                        A3
+                    </span>
+
+                    <div class="parking-car">
+                        ⚡🚗
+                    </div>
+
+                    <strong>
+                        AVAILABLE
+                    </strong>
+
+                </div>
+
+
+                <div
+                    class="parking-slot occupied"
+                    id="mapSlot4">
+
+                    <span class="slot-label">
+                        A4
+                    </span>
+
+                    <div class="parking-car">
+                        🚙
+                    </div>
+
+                    <strong>
+                        OCCUPIED
+                    </strong>
+
+                </div>
+
+
+                <div
+                    class="parking-slot occupied"
+                    id="mapSlot5">
+
+                    <span class="slot-label">
+                        B1
+                    </span>
+
+                    <div class="parking-car">
+                        🚙
+                    </div>
+
+                    <strong>
+                        OCCUPIED
+                    </strong>
+
+                </div>
+
+
+                <div
+                    class="parking-slot available"
+                    id="mapSlot6"
+                    onclick="selectMapSlot(6)">
+
+                    <span class="slot-label">
+                        B2
+                    </span>
+
+                    <div class="parking-car">
+                        ⚡🚗
+                    </div>
+
+                    <strong>
+                        AVAILABLE
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="station-exit">
+
+                EXIT 🚗
+
+            </div>
+
+
+            <div class="map-legend">
+
+                <span>
+                    <i class="legend-green"></i>
+                    Available
+                </span>
+
+                <span>
+                    <i class="legend-red"></i>
+                    Occupied
+                </span>
+
+                <span>
+                    ⚡ Charging Point
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- LOCATION MAP -->
+
+        <div class="location-map-card">
+
+            <div class="map-header">
+
+                <div>
+
+                    <p class="small-title">
+                        STATION LOCATION
+                    </p>
+
+                    <h3>
+                        Nearby Charging Station
+                    </h3>
+
+                </div>
+
+                <span>
+                    📍
+                </span>
+
+            </div>
+
+
+            <div class="demo-map">
+
+                <div class="road road-1"></div>
+                <div class="road road-2"></div>
+                <div class="road road-3"></div>
+
+
+                <div class="building building-1">
+
+                    🏢
+
+                    <small>
+                        Shopping Mall
+                    </small>
+
+                </div>
+
+
+                <div class="building building-2">
+
+                    🏫
+
+                    <small>
+                        College
+                    </small>
+
+                </div>
+
+
+                <div class="station-marker">
+
+                    <div class="marker-pulse"></div>
+
+                    ⚡
+
+                </div>
+
+
+                <div class="map-label">
+
+                    SolarEV Charging Station
+
+                </div>
+
+            </div>
+
+
+            <div class="location-details">
+
+                <strong>
+                    SolarEV Charging Station
+                </strong>
+
+                <p>
+                    📍 Pune, Maharashtra
+                </p>
+
+                <p id="locationAvailable">
+                    🅿️ 3 charging spaces available
+                </p>
+
+
+                <button
+                    class="primary-btn"
+                    onclick="showDirections()">
+
+                    🧭 Get Directions
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     CHARGING SLOTS
+===================================================== -->
+
+<section
+    id="station"
+    class="container section">
+
+
+    <div class="section-heading">
+
+        <div>
+
+            <p class="small-title">
+                CHARGING STATION
+            </p>
+
+            <h2>
+                Available Charging Slots
+            </h2>
+
+        </div>
+
+
+        <div class="legend">
+
+            <span>
+                <i class="available-dot"></i>
+                Available
+            </span>
+
+            <span>
+                <i class="busy-dot"></i>
+                Occupied
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <div
+        class="slots-grid"
+        id="slotsContainer">
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     CHARGING MONITOR
+===================================================== -->
+
+<section class="container section">
+
+
+    <div class="charging-panel">
+
+
+        <div class="charging-header">
+
+            <div>
+
+                <p class="small-title">
+                    CURRENT SESSION
+                </p>
+
+                <h2>
+                    Charging Monitor
+                </h2>
+
+            </div>
+
+
+            <div
+                id="chargingIndicator"
+                class="charging-indicator">
+
+                ● Ready
+
+            </div>
+
+        </div>
+
+
+        <div class="charging-content">
+
+
+            <div class="big-battery">
+
+                <div class="battery-outline">
+
+                    <div
+                        class="big-battery-level"
+                        id="bigBatteryLevel"
+                        style="width:42%">
+                    </div>
+
+                </div>
+
+
+                <h1 id="chargingPercent">
+                    42%
+                </h1>
+
+                <p>
+                    Battery Level
+                </p>
+
+            </div>
+
+
+            <div class="charging-data">
+
+
+                <div class="data-row">
+
+                    <span>
+                        Charging Power
+                    </span>
+
+                    <strong>
+                        7.2 kW
+                    </strong>
+
+                </div>
+
+
+                <div class="data-row">
+
+                    <span>
+                        Energy Delivered
+                    </span>
+
+                    <strong id="energyDelivered">
+                        0.00 kWh
+                    </strong>
+
+                </div>
+
+
+                <div class="data-row">
+
+                    <span>
+                        Estimated Cost
+                    </span>
+
+                    <strong id="currentCost">
+                        ₹0.00
+                    </strong>
+
+                </div>
+
+
+                <div class="data-row">
+
+                    <span>
+                        Selected Slot
+                    </span>
+
+                    <strong id="selectedSlot">
+                        None
+                    </strong>
+
+                </div>
+
+
+                <button
+                    class="primary-btn full"
+                    id="chargingButton"
+                    onclick="startCharging()">
+
+                    Start Charging
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     SOLAR DASHBOARD
+===================================================== -->
+
+<section class="container section">
+
+
+    <div class="solar-dashboard">
+
+
+        <div class="solar-left">
+
+            <div class="small-title">
+                RENEWABLE ENERGY
+            </div>
+
+
+            <h2>
+                Solar Power Dashboard ☀️
+            </h2>
+
+
+            <p>
+                Your EV charging station is powered using
+                clean solar energy, reducing dependency
+                on grid electricity.
+            </p>
+
+
+            <div class="solar-stats">
+
+
+                <div>
+
+                    <strong>
+                        18.5 kW
+                    </strong>
+
+                    <span>
+                        Current Generation
+                    </span>
+
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        12.2 kW
+                    </strong>
+
+                    <span>
+                        Used for EV Charging
+                    </span>
+
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        66%
+                    </strong>
+
+                    <span>
+                        Solar Utilization
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="solar-circle">
+
+            <div class="circle-inner">
+
+                <span>☀️</span>
+
+                <strong>
+                    74%
+                </strong>
+
+                <small>
+                    Solar Power
+                </small>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     BILLING
+===================================================== -->
+
+<section
+    id="billing"
+    class="container section">
+
+
+    <div class="section-heading">
+
+        <div>
+
+            <p class="small-title">
+                PAYMENT & HISTORY
+            </p>
+
+            <h2>
+                Online Bill
+            </h2>
+
+        </div>
+
+    </div>
+
+
+    <div class="bill-card">
+
+
+        <div class="bill-header">
+
+            <div>
+
+                <p>
+                    SolarEV Charging Station
+                </p>
+
+                <h3>
+                    Charging Invoice
+                </h3>
+
+            </div>
+
+
+            <div class="bill-number">
+
+                #SEV-2026-001
+
+            </div>
+
+        </div>
+
+
+        <div class="bill-details">
+
+
+            <div>
+
+                <span>
+                    Customer
+                </span>
+
+                <strong>
+                    Rahul Sharma
+                </strong>
+
+            </div>
+
+
+            <div>
+
+                <span>
+                    Vehicle
+                </span>
+
+                <strong>
+                    Tata Nexon EV
+                </strong>
+
+            </div>
+
+
+            <div>
+
+                <span>
+                    Registration
+                </span>
+
+                <strong>
+                    MH 12 AB 1234
+                </strong>
+
+            </div>
+
+
+            <div>
+
+                <span>
+                    Date
+                </span>
+
+                <strong id="billDate">
+                    03 Oct 2026
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="bill-table">
+
+
+            <div class="bill-row bill-heading">
+
+                <span>
+                    Description
+                </span>
+
+                <span>
+                    Details
+                </span>
+
+                <span>
+                    Amount
+                </span>
+
+            </div>
+
+
+            <div class="bill-row">
+
+                <span>
+                    EV Charging
+                </span>
+
+                <span id="billEnergy">
+                    23.49 kWh
+                </span>
+
+                <span id="billAmount">
+                    ₹352.35
+                </span>
+
+            </div>
+
+
+            <div class="bill-row">
+
+                <span>
+                    Solar Energy Discount
+                </span>
+
+                <span>
+                    10%
+                </span>
+
+                <span id="billDiscount">
+                    -₹35.24
+                </span>
+
+            </div>
+
+
+            <div class="bill-row total-row">
+
+                <span>
+                    Total
+                </span>
+
+                <span></span>
+
+                <span id="billTotal">
+                    ₹317.11
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="bill-footer">
+
+
+            <div>
+
+                <span>
+                    Payment Status
+                </span>
+
+                <strong class="paid">
+                    ✓ Paid Online
+                </strong>
+
+            </div>
+
+
+            <button
+                class="secondary-btn"
+                onclick="downloadBill()">
+
+                Download Bill
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <div class="footer-content">
+
+
+        <div>
+
+            <h2>
+                ☀ Solar<span>EV</span>
+            </h2>
+
+            <p>
+                Smart EV charging powered by renewable energy.
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <p>
+                © 2026 Solar Smart EV Charging Station
+            </p>
+
+            <p>
+                College Project Prototype
+            </p>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
